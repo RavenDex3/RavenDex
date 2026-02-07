@@ -1,0 +1,191 @@
+"""
+🐒 Raven the Monkey — Legendary Trading Primate
+Pump.fun Wallet Tracker + Jungle Analytics Terminal
+
+This is a fun, lore‑driven Python script that simulates Raven’s
+trading philosophy while tracking wallet activity.
+
+NOTE:
+Replace API endpoints / keys if you want real blockchain data.
+Currently structured for Solana‑style wallet tracking.
+"""
+
+import time
+import random
+from datetime import datetime
+
+# ==============================
+# 🐒 Raven Config
+# ==============================
+
+RAVEN_WALLET = "7prw6a2qzZBV5e37n3ZXK88ZiZHBDbeFJu7X73C4gQ7"
+CHECK_INTERVAL = 10  # seconds
+
+BANANA_RISK_LEVEL = 0.25  # 25% stash per trade max
+JUNGLE_CONFIDENCE_THRESHOLD = 0.7
+
+# ==============================
+# 🧠 Jungle Intelligence Engine
+# ==============================
+
+class JungleIntel:
+
+    def __init__(self):
+        self.meme_velocity = 0
+        self.volume_signal = 0
+        self.holder_growth = 0
+        self.dev_wallet_behavior = "Unknown"
+
+    def scan_market_tree(self):
+        """Simulate scanning Pump.fun trenches"""
+
+        self.meme_velocity = random.uniform(0, 1)
+        self.volume_signal = random.uniform(0, 1)
+        self.holder_growth = random.uniform(0, 1)
+        self.dev_wallet_behavior = random.choice([
+            "Based",
+            "Neutral",
+            "Suspicious",
+            "Predatory"
+        ])
+
+    def jungle_score(self):
+        """Calculate Raven conviction score"""
+
+        score = (
+            self.meme_velocity * 0.3 +
+            self.volume_signal * 0.3 +
+            self.holder_growth * 0.4
+        )
+
+        return round(score, 3)
+
+# ==============================
+# 🍌 Risk Management System
+# ==============================
+
+class BananaRiskManager:
+
+    def __init__(self, stash_size):
+        self.stash_size = stash_size
+
+    def calculate_position(self):
+        position = self.stash_size * BANANA_RISK_LEVEL
+        return round(position, 2)
+
+# ==============================
+# 📊 Raven Trader Core
+# ==============================
+
+class RavenTrader:
+
+    def __init__(self):
+        self.wallet = RAVEN_WALLET
+        self.banana_stash = 1000  # starting capital (simulated)
+        self.intel = JungleIntel()
+        self.risk_manager = BananaRiskManager(self.banana_stash)
+
+    # ==========================
+    # 🔍 Wallet Tracker
+    # ==========================
+
+    def track_wallet(self):
+        """Simulated wallet activity feed"""
+
+        activities = [
+            "Entered early on a micro‑cap gem",
+            "Scaled into strength",
+            "Let runners run",
+            "Avoided obvious rug",
+            "Took profits at euphoria peak",
+            "Threw bananas at weak hands"
+        ]
+
+        return random.choice(activities)
+
+    # ==========================
+    # 🧠 Trade Decision Engine
+    # ==========================
+
+    def evaluate_trade(self):
+
+        self.intel.scan_market_tree()
+        score = self.intel.jungle_score()
+
+        print("\n🌴 Scanning Jungle Metrics...")
+        time.sleep(1)
+
+        print(f"Meme Velocity: {self.intel.meme_velocity:.2f}")
+        print(f"Volume Signal: {self.intel.volume_signal:.2f}")
+        print(f"Holder Growth: {self.intel.holder_growth:.2f}")
+        print(f"Dev Behavior: {self.intel.dev_wallet_behavior}")
+        print(f"Jungle Score: {score}")
+
+        if score >= JUNGLE_CONFIDENCE_THRESHOLD:
+            self.execute_trade(score)
+        else:
+            print("🛑 Raven remains perched. No entry.")
+
+    # ==========================
+    # 🚀 Trade Execution
+    # ==========================
+
+    def execute_trade(self, score):
+
+        position = self.risk_manager.calculate_position()
+
+        print("\n🚀 RAVEN ENTRY DETECTED")
+        print(f"Conviction Score: {score}")
+        print(f"Position Size: {position} bananas")
+
+        outcome = random.choice(["win", "moon", "loss"])
+
+        if outcome == "win":
+            profit = position * random.uniform(0.2, 0.8)
+            self.banana_stash += profit
+            print(f"✅ Trade Win — +{profit:.2f} bananas")
+
+        elif outcome == "moon":
+            profit = position * random.uniform(1.5, 4)
+            self.banana_stash += profit
+            print(f"🌕 ABSOLUTE MOONSHOT — +{profit:.2f} bananas")
+
+        else:
+            loss = position * random.uniform(0.1, 0.4)
+            self.banana_stash -= loss
+            print(f"❌ Strategic Loss — -{loss:.2f} bananas")
+
+        print(f"🍌 Updated Stash: {self.banana_stash:.2f}")
+
+# ==============================
+# 🖥️ Jungle Terminal UI
+# ==============================
+
+def jungle_terminal():
+
+    raven = RavenTrader()
+
+    print("""
+    🐒 Raven the Monkey — Trading Terminal Activated
+    Tracking wallet + scanning Pump.fun trenches...
+    """)
+
+    while True:
+
+        print("\n" + "="*50)
+        print(f"⏰ {datetime.utcnow()} UTC")
+        print(f"Wallet: {raven.wallet}")
+
+        activity = raven.track_wallet()
+        print(f"📡 Activity: {activity}")
+
+        raven.evaluate_trade()
+
+        time.sleep(CHECK_INTERVAL)
+
+# ==============================
+# 🚀 Launch Raven
+# ==============================
+
+if __name__ == "__main__":
+    jungle_terminal()
